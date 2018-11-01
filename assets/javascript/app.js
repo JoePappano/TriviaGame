@@ -86,6 +86,8 @@ var choiceA = $("#choiceA");
 var choiceB = $("#choiceB");
 var choiceC = $("#choiceC");
 var choiceD = $("#choiceD");
+var correctDiv = $("#correct");
+var incorrectDiv = $("#incorrect");
 var incorrect = 0;
 var correct = 0;
 var i = 0;
@@ -119,18 +121,21 @@ $("#playButton").on("click", function () {
 
 
 function setQuestion() {
-    myInterval = setInterval(timeIt, 1000);
-    question.text(questions[i].question);
-    choiceA.text(questions[i].choiceA);
-    choiceA.attr("x", questions[i].choiceA);
-    choiceB.text(questions[i].choiceB);
-    choiceB.attr("x", questions[i].choiceB);
-    choiceC.text(questions[i].choiceC);
-    choiceC.attr("x", questions[i].choiceC);
-    choiceD.text(questions[i].choiceD);
-    choiceD.attr("x", questions[i].choiceD);
-    console.log("Correct: " + correct)
-    console.log("Incorrect: " + incorrect)
+    if (i < 10) {
+        myInterval = setInterval(timeIt, 1000);
+        question.text(questions[i].question);
+        choiceA.text(questions[i].choiceA);
+        choiceA.attr("x", questions[i].choiceA);
+        choiceB.text(questions[i].choiceB);
+        choiceB.attr("x", questions[i].choiceB);
+        choiceC.text(questions[i].choiceC);
+        choiceC.attr("x", questions[i].choiceC);
+        choiceD.text(questions[i].choiceD);
+        choiceD.attr("x", questions[i].choiceD);
+        // if (i > 10) {
+            // make modal pop up
+        // }
+    }
 }
 
 choiceA.on("click", function () {
@@ -141,6 +146,8 @@ choiceA.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        correctDiv.text("Correct: " + correct);
+
     } else {
         alert("Sorry! That's wrong!");
         incorrect++;
@@ -148,6 +155,7 @@ choiceA.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        incorrectDiv.text("Incorrect: " + incorrect);
     }
 })
 
@@ -159,6 +167,7 @@ choiceB.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        correctDiv.text("Correct: " + correct);
     } else {
         alert("Sorry! That's wrong!");
         incorrect++;
@@ -166,6 +175,7 @@ choiceB.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        incorrectDiv.text("Incorrect: " + incorrect);
     }
 })
 
@@ -177,6 +187,7 @@ choiceC.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        correctDiv.text("Correct: " + correct);
     } else {
         alert("Sorry! That's wrong!");
         incorrect++;
@@ -184,6 +195,7 @@ choiceC.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        incorrectDiv.text("Incorrect: " + incorrect);
     }
 })
 
@@ -195,6 +207,7 @@ choiceD.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        correctDiv.text("Correct: " + correct);
     } else {
         alert("Sorry! That's wrong!");
         incorrect++;
@@ -202,6 +215,7 @@ choiceD.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
+        lincorrectDiv.text("Incorrect: " + incorrect);
     }
 })
 
