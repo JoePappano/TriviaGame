@@ -91,13 +91,13 @@ var incorrectDiv = $("#incorrect");
 var incorrect = 0;
 var correct = 0;
 var i = 0;
-var counter = 5;
+var counter = 15;
 
 var myInterval;
 
 
 function resetCounter() {
-    counter = 30;
+    counter = 15;
     $("#timer").text(counter);
 }
 
@@ -108,6 +108,7 @@ function timeIt() {
         alert("Time's Up!");
         incorrect++;
         i++;
+        incorrectDiv.text("Incorrect: " + incorrect);
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
@@ -132,10 +133,15 @@ function setQuestion() {
         choiceC.attr("x", questions[i].choiceC);
         choiceD.text(questions[i].choiceD);
         choiceD.attr("x", questions[i].choiceD);
-        // if (i > 10) {
-            // make modal pop up
-        // }
-    }
+    } else if (i == 10) {
+        alert("Game Over! You got "+correct+" correct and "+incorrect+" incorrect. Play again?");
+        window.location.reload();
+            // console.log("Game over")
+            // $('#myModal').on('shown.bs.modal', function () {
+            //     $('#myInput').trigger('focus')
+            // })
+        }
+    
 }
 
 choiceA.on("click", function () {
@@ -149,7 +155,7 @@ choiceA.on("click", function () {
         correctDiv.text("Correct: " + correct);
 
     } else {
-        alert("Sorry! That's wrong!");
+        alert("Sorry! That's wrong! The answer is "+ questions[i].correctAnswer+".");
         incorrect++;
         i++;
         clearInterval(myInterval);
@@ -169,7 +175,7 @@ choiceB.on("click", function () {
         setQuestion();
         correctDiv.text("Correct: " + correct);
     } else {
-        alert("Sorry! That's wrong!");
+        alert("Sorry! That's wrong! The answer is "+ questions[i].correctAnswer+".");
         incorrect++;
         i++;
         clearInterval(myInterval);
@@ -189,7 +195,7 @@ choiceC.on("click", function () {
         setQuestion();
         correctDiv.text("Correct: " + correct);
     } else {
-        alert("Sorry! That's wrong!");
+        alert("Sorry! That's wrong! The answer is "+ questions[i].correctAnswer+".");
         incorrect++;
         i++;
         clearInterval(myInterval);
@@ -209,7 +215,7 @@ choiceD.on("click", function () {
         setQuestion();
         correctDiv.text("Correct: " + correct);
     } else {
-        alert("Sorry! That's wrong!");
+        alert("Sorry! That's wrong! The answer is "+ questions[i].correctAnswer +".");
         incorrect++;
         i++;
         clearInterval(myInterval);
@@ -218,4 +224,3 @@ choiceD.on("click", function () {
         incorrectDiv.text("Incorrect: " + incorrect);
     }
 })
-

@@ -1,0 +1,18 @@
+body html {
+    margin: 0;
+    padding: 0;
+}
+
+
+.backgroundimg {
+    background-image: url(http://usscproducts.com/images/products/Football_Field_Layout_high_school_college_dimension_diagram.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+h1 p {
+    color: white!important;
+}
