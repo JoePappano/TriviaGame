@@ -215,7 +215,7 @@ choiceD.on("click", function () {
         clearInterval(myInterval);
         resetCounter();
         setQuestion();
-        lincorrectDiv.text("Incorrect: " + incorrect);
+        incorrectDiv.text("Incorrect: " + incorrect);
     }
 })
 
